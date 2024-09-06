@@ -36,7 +36,7 @@ class TestCompareCSVFiles(unittest.TestCase):
             os.remove(self.result_path)
 
     def test_compare_csv_files(self):
-        compare_csv_files(self.file1_path, self.file2_path)
+        compare_csv_files(self.file1_path, self.file2_path, ['c1', 'c2', 'c3'], ['c4', 'c5'])
 
         # Expected result CSV data
         expected_result = """type,key,column_name,old_value,new_value
