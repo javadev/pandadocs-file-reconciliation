@@ -40,17 +40,16 @@ class TestCompareCSVFiles(unittest.TestCase):
 
         # Expected result CSV data
         expected_result = """type,key,column_name,old_value,new_value
-Changed,1,A,X,c4,10,10
-Changed,1,A,X,c5,20,22
-Changed,2,B,Y,c4,15,17
-New,4,D,W,c4,None,30
-New,4,D,W,c5,None,40
-Missed,3,C,Z,c4,20,None
-Missed,3,C,Z,c5,30,None
+New,"4, D, W",c4,,30.0
+New,"4, D, W",c5,,40.0
+Missed,"3, C, Z",c4,20.0,
+Missed,"3, C, Z",c5,30.0,
+Changed,"1, A, X",c5,20.0,22.0
+Changed,"2, B, Y",c4,15.0,17.0
 """
         with open(self.result_path, 'r') as f:
             result_data = f.read()
-
+        print(result_data)
         self.assertEqual(result_data.strip(), expected_result.strip())
 
 if __name__ == '__main__':
